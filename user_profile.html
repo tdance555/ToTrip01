@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>AR 遊戲</title>
+    <title>使用者資訊</title>
     <style>
         /* 僅在手機上顯示 */
         @media (min-width: 481px) {
@@ -19,16 +17,11 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                text-align: center;
-                /* 所有文字置中 */
-                background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/WebAR_Background.png?raw=true');
-                /* 背景圖像路徑 */
-                background-size: 100% 100%;
-                /* 使背景圖像覆蓋整個背景 */
-                background-position: center center;
-                /* 將背景圖像置中 */
-                background-repeat: no-repeat;
-                /* 防止背景圖像重複 */
+                text-align: center; /* 所有文字置中 */
+                background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/%E4%BF%AE%E7%90%86%E7%B6%A0.png?raw=true');  /* 背景圖像路徑 */
+                background-size: 100% 100%; /* 使背景圖像覆蓋整個背景 */
+                background-position: center center; /* 將背景圖像置中 */
+                background-repeat: no-repeat; /* 防止背景圖像重複 */
             }
 
             .container {
@@ -36,8 +29,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                height: 100vh;
-                /* 占滿視窗高度 */
+                height: 100vh; /* 占滿視窗高度 */
                 padding: 20px;
                 box-sizing: border-box;
             }
@@ -56,49 +48,39 @@
                 padding: 10px;
                 margin: 5px;
                 cursor: pointer;
-                border: 1px solid #ccc;
-                /* 按鈕邊框顏色 */
+                border: 1px solid #ccc; /* 按鈕邊框顏色 */
                 border-radius: 5px;
-                background-color: #f0f0f0;
-                /* 按鈕默認背景顏色 */
-                color: #333;
-                /* 按鈕默認文字顏色 */
+                background-color: #f0f0f0; /* 按鈕默認背景顏色 */
+                color: #333; /* 按鈕默認文字顏色 */
                 font-size: 16px;
                 outline: none;
-                flex: 1;
-                /* 按鈕平分容器寬度 */
+                flex: 1; /* 按鈕平分容器寬度 */
                 box-sizing: border-box;
             }
 
             .gender-button.selected {
-                background-color: #4CAF50;
-                /* 選中狀態的背景顏色 */
-                color: white;
-                /* 選中狀態的文字顏色 */
+                background-color: lightseagreen; /* 選中狀態的背景顏色 */
+                color: white; /* 選中狀態的文字顏色 */
             }
 
             .form-group {
                 margin-bottom: 15px;
-                text-align: center;
-                /* 文字置中 */
+                text-align: center; /* 文字置中 */
             }
 
             input[type="tel"] {
                 width: 100%;
                 padding: 10px;
                 box-sizing: border-box;
-                border: 1px solid #ccc;
-                /* 輸入框邊框顏色 */
+                border: 1px solid #ccc; /* 輸入框邊框顏色 */
                 border-radius: 5px;
             }
 
             button {
                 width: 100%;
                 padding: 10px;
-                background-color: #4CAF50;
-                /* 送出按鈕背景顏色 */
-                color: white;
-                /* 送出按鈕文字顏色 */
+                background-color: lightseagreen; /* 送出按鈕背景顏色 */
+                color: white; /* 送出按鈕文字顏色 */
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
@@ -118,13 +100,12 @@
     <!-- 引入intl-tel-input的CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
 </head>
-
 <body>
     <div class="container">
         <h1 class="text1">在開始旅遊之前，我們想知道......</h1>
         <h2 class="text2">請提供簡單資訊方便我們紀錄您的集點資訊</h2>
 
-        <form id="user-form">
+        <form id="user-form" method="post" action="manual.html">
             <div class="form-group">
                 <h3>手機號碼</h3>
                 <input type="tel" id="phone" name="phone" placeholder="輸入手機號碼">
@@ -145,67 +126,53 @@
     <!-- 引入intl-tel-input的JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // 初始化 intl-tel-input
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化intl-tel-input
             var input = document.querySelector("#phone");
             var iti = window.intlTelInput(input, {
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-                initialCountry: "TW"
+                initialCountry: "TW" // 设置默认国家为台湾
             });
 
             // 處理性別按鈕點擊事件
-            $('.gender-button').click(function () {
-                $('.gender-button').removeClass('selected');
-                $(this).addClass('selected');
-                $('#id_gender').val($(this).data('value'));
+            let buttons = document.querySelectorAll('.gender-button');
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    buttons.forEach(function(btn) {
+                        btn.classList.remove('selected');
+                    });
+                    button.classList.add('selected');
+                    document.getElementById('id_gender').value = button.dataset.value;
+                });
             });
 
-            // 處理表單提交事件
-            $('#user-form').submit(function (event) {
-                event.preventDefault(); // 停用表單預設行為
+            document.getElementById('user-form').addEventListener('submit', function(event) {
+                // 阻止表單實際提交
+                event.preventDefault();
 
                 // 檢查手機號碼是否有效
                 if (!iti.isValidNumber()) {
                     alert("請輸入有效的手機號碼");
-                    return;
-                }
+                } else {
+                    // 獲取格式化的手機號碼
+                    var formattedPhoneNumber = iti.getNumber();
 
-                // 檢查是否選擇了性別
-                if ($('#id_gender').val() === '') {
-                    alert("請選擇性別");
-                    return;
-                }
+                    // 將國際化的電話號碼轉換為本地格式
+                    var localPhoneNumber = formattedPhoneNumber.replace("+886", "0");
 
-                // 去除國際碼，將手機號碼格式化為本地格式
-                var formattedPhoneNumber = iti.getNumber().replace(/^\+886/, "0");
+                    // 設置Cookie保存本地格式的手機號碼
+                    document.cookie = "phone=" + localPhoneNumber + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
 
-                // 準備要送到後端的使用者註冊資料
-                var data = {
-                    phone: formattedPhoneNumber,
-                    gender: $('#id_gender').val()
-                };
-
-                // 發送 AJAX 請求
-                $.ajax({
-                    url: 'https://tdance.fansee.studio/trips/api/user/',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function (response) {
-                        console.log('成功:', response);
-                        // 設置 Cookie 保存手機號碼
-                        document.cookie = "phone=" + formattedPhoneNumber + "; path=/; max-age=" + (60 * 60 * 24 * 30);
-                        // 成功後重新導向
+                    // 檢查是否選擇了性別
+                    if (document.getElementById('id_gender').value === '') {
+                        alert("請選擇性別");
+                    } else {
+                        // 導引到 manual.html
                         window.location.href = "manual.html";
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('錯誤:', error);
-                        alert('註冊失敗，請再重試一次');
                     }
-                });
+                }
             });
         });
     </script>
 </body>
-
 </html>
