@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>AR 遊戲</title>
+    <title>註冊帳號</title>
     <style>
         /* 僅在手機上顯示 */
         @media (min-width: 481px) {
@@ -20,10 +18,15 @@
                 margin: 0;
                 padding: 0;
                 text-align: center;
+                /* 所有文字置中 */
                 background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/WebAR_Background.png?raw=true');
+                /* 背景圖像路徑 */
                 background-size: 100% 100%;
+                /* 使背景圖像覆蓋整個背景 */
                 background-position: center center;
+                /* 將背景圖像置中 */
                 background-repeat: no-repeat;
+                /* 防止背景圖像重複 */
             }
 
             .container {
@@ -32,6 +35,7 @@
                 align-items: center;
                 justify-content: center;
                 height: 100vh;
+                /* 占滿視窗高度 */
                 padding: 20px;
                 box-sizing: border-box;
             }
@@ -51,23 +55,30 @@
                 margin: 5px;
                 cursor: pointer;
                 border: 1px solid #ccc;
+                /* 按鈕邊框顏色 */
                 border-radius: 5px;
                 background-color: #f0f0f0;
+                /* 按鈕默認背景顏色 */
                 color: #333;
+                /* 按鈕默認文字顏色 */
                 font-size: 16px;
                 outline: none;
                 flex: 1;
+                /* 按鈕平分容器寬度 */
                 box-sizing: border-box;
             }
 
             .gender-button.selected {
                 background-color: #4CAF50;
+                /* 選中狀態的背景顏色 */
                 color: white;
+                /* 選中狀態的文字顏色 */
             }
 
             .form-group {
                 margin-bottom: 15px;
                 text-align: center;
+                /* 文字置中 */
             }
 
             input[type="tel"] {
@@ -75,6 +86,7 @@
                 padding: 10px;
                 box-sizing: border-box;
                 border: 1px solid #ccc;
+                /* 輸入框邊框顏色 */
                 border-radius: 5px;
             }
 
@@ -82,7 +94,9 @@
                 width: 100%;
                 padding: 10px;
                 background-color: #4CAF50;
+                /* 送出按鈕背景顏色 */
                 color: white;
+                /* 送出按鈕文字顏色 */
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
@@ -102,13 +116,12 @@
     <!-- 引入intl-tel-input的CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
 </head>
-
 <body>
     <div class="container">
         <h1 class="text1">在開始旅遊之前，我們想知道......</h1>
         <h2 class="text2">請提供簡單資訊方便我們紀錄您的集點資訊</h2>
 
-        <form id="user-form" method="post" action="{% url 'user_profile' %}">
+        <form id="user-form">
             <div class="form-group">
                 <h3>手機號碼</h3>
                 <input type="tel" id="phone" name="phone" placeholder="輸入手機號碼">
@@ -128,6 +141,7 @@
 
     <!-- 引入intl-tel-input的JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             // 初始化 intl-tel-input
@@ -168,7 +182,7 @@
 
                 // 發送 AJAX 請求
                 $.ajax({
-                    url: 'https://tdance.fansee.studio/trips/api/user/',
+                    url: 'https://tdance.fansee.studio/trips/api/user/', // 修改為你的API網址
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
@@ -188,5 +202,4 @@
         });
     </script>
 </body>
-
 </html>
