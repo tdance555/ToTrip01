@@ -105,7 +105,7 @@
         <h1 class="text1">在開始旅遊之前，我們想知道......</h1>
         <h2 class="text2">請提供簡單資訊方便我們紀錄您的集點資訊</h2>
 
-        <form id="user-form" method="post" action="user_profile">
+        <form id="user-form" method="post" action="{% url 'user_profile' %}">
             {% csrf_token %}
             <div class="form-group">
                 <h3>手機號碼</h3>
