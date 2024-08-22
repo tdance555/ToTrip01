@@ -81,10 +81,10 @@
     <button class="back-button" onclick="window.history.back()"></button>
     <h1></h1>
     <!-- 換mind檔案 -->
-    <a-scene mindar-image="imageTargetSrc: ../mind/targets_01.mind; uiError: no; uiLoading: no; uiScanning: no;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: /mind/targets_01.mind; uiError: no; uiLoading: no; uiScanning: no;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
             <!-- 換圖片 -->
-            <img id="card" src="https://github.com/tdance555/tdance2024/blob/beforeFinish/trips/img/img_01.png?raw=true" />
+            <img id="card" src="img/img_01.png" />
             <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
         </a-assets>
 
@@ -162,9 +162,9 @@
                                             $('.question, .option').remove();
 
                                             if (resultStatus === 'pass') {
-                                                $('.result').html('<p>恭喜通關</p><img src="https://github.com/tdance555/tdance2024/blob/beforeFinish/media/vendor_icons/correct.png?raw=true" alt="Success Image"><button onclick="window.history.back()">繼續前行</button>');
+                                                $('.result').html('<p>恭喜通關</p><img src="media/vendor_icons/vendor_icons/correct.png" alt="Success Image"><button onclick="window.history.back()">繼續前行</button>');
                                             } else {
-                                                $('.result').html('<p>挑戰失敗</p><img src="https://github.com/tdance555/tdance2024/blob/beforeFinish/media/vendor_icons/wrong.png?raw=true" alt="Failure Image"><button onclick="window.history.back()">繼續前行</button>');
+                                                $('.result').html('<p>挑戰失敗</p><img src="media/vendor_icons/vendor_icons/wrong.png" alt="Failure Image"><button onclick="window.history.back()">繼續前行</button>');
                                             }
 
                                             $('.result').fadeIn();
