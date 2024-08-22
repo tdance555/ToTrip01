@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>註冊帳號</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AR 遊戲</title>
     <style>
         /* 僅在手機上顯示 */
         @media (min-width: 481px) {
@@ -116,6 +118,7 @@
     <!-- 引入intl-tel-input的CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
 </head>
+
 <body>
     <div class="container">
         <h1 class="text1">在開始旅遊之前，我們想知道......</h1>
@@ -141,7 +144,6 @@
 
     <!-- 引入intl-tel-input的JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             // 初始化 intl-tel-input
@@ -174,22 +176,25 @@
                     return;
                 }
 
+                // 去除國際碼，將手機號碼格式化為本地格式
+                var formattedPhoneNumber = iti.getNumber().replace(/^\+886/, "0");
+
                 // 準備要送到後端的使用者註冊資料
                 var data = {
-                    phone: iti.getNumber(),
+                    phone: formattedPhoneNumber,
                     gender: $('#id_gender').val()
                 };
 
                 // 發送 AJAX 請求
                 $.ajax({
-                    url: 'https://tdance.fansee.studio/trips/api/user/', // 修改為你的API網址
+                    url: 'https://tdance.fansee.studio/trips/api/user/',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
                     success: function (response) {
                         console.log('成功:', response);
                         // 設置 Cookie 保存手機號碼
-                        document.cookie = "phone=" + iti.getNumber() + "; path=/; max-age=" + (60 * 60 * 24 * 30);
+                        document.cookie = "phone=" + formattedPhoneNumber + "; path=/; max-age=" + (60 * 60 * 24 * 30);
                         // 成功後重新導向
                         window.location.href = "manual.html";
                     },
@@ -202,4 +207,5 @@
         });
     </script>
 </body>
+
 </html>
