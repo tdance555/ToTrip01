@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/%E9%BB%83%E9%BA%B5%E5%8C%85.png?raw=true'); 
+            background-image: url('./media/vendor_icons/%E9%BB%83%E9%BA%B5%E5%8C%85.png');
             background-size: 100% 100%;
             background-position: center center;
             background-repeat: no-repeat;
@@ -21,7 +22,7 @@
             left: 10px;
             width: 100px;
             height: 100px;
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/%E5%B0%8D%E9%8C%AF%E8%BF%94%E5%9B%9E_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201%20%E8%A4%87%E6%9C%AC%204.png?raw=true');
+            background-image: url('./media/vendor_icons/%E5%B0%8D%E9%8C%AF%E8%BF%94%E5%9B%9E_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201%20%E8%A4%87%E6%9C%AC%204.png');
             background-size: cover;
             background-color: transparent;
             border: none;
@@ -71,30 +72,37 @@
         }
 
         .button-container .iconbt6 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/6.png?raw=true');
+            background-image: url('./media/vendor_icons/6.png');
         }
+
         .button-container .iconbt7 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/7.png?raw=true');
+            background-image: url('./media/vendor_icons/7.png');
         }
+
         .button-container .iconbt8 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/8.png?raw=true');
+            background-image: url('./media/vendor_icons/8.png');
         }
+
         .button-container .iconbt9 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/9.png?raw=true');
+            background-image: url('./media/vendor_icons/9.png');
         }
+
         .button-container .iconbt10 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/10.png?raw=true');
+            background-image: url('./media/vendor_icons/10.png');
         }
+
         .button-container .iconbt11 {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/11.png?raw=true');
+            background-image: url('./media/vendor_icons/11.png');
         }
 
         .status-pass,
         .status-fail {
             position: absolute;
-            top: 50%; /* 中心位置 */
+            top: 50%;
+            /* 中心位置 */
             left: 50%;
-            transform: translate(-50%, -50%); /* 居中 */
+            transform: translate(-50%, -50%);
+            /* 居中 */
             width: 100px;
             height: 100px;
             background-size: cover;
@@ -104,21 +112,23 @@
         }
 
         .status-pass {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/correct.png?raw=true');
+            background-image: url('./media/vendor_icons/correct.png');
         }
 
         .status-fail {
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/wrong.png?raw=true');
+            background-image: url('./media/vendor_icons/wrong.png');
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-align: center;
             color: #333;
         }
-        
+
         .h1-1 {
             font-size: 23px;
         }
+
         .h2-1 {
             font-size: 20px;
         }
@@ -142,6 +152,7 @@
         }
     </style>
 </head>
+
 <body>
     <button class="back-button" onclick="window.history.back()"></button>
     <div class="container">
@@ -183,9 +194,9 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const phone = getCookie('phone');
-            
+
             if (phone) {
                 fetch(`https://tdance.fansee.studio/trips/api/post-detail/${phone}/`)
                     .then(response => response.json())
@@ -196,7 +207,7 @@
                             const statusPassElement = document.getElementById(`status${level}`);
                             const statusFailElement = document.getElementById(`fail${level}`);
                             const button = document.querySelector(`button[data-level="${level}"]`);
-                            
+
                             const status = data.content[level.toString()]?.status;
                             if (status === 'pass') {
                                 button.disabled = true;
@@ -230,15 +241,16 @@
 
         function handleButtonClick(level) {
             document.cookie = `level=${level}; path=/; max-age=${60 * 60 * 24 * 30}`; // 30 days
-            window.location.href = `arScan${level}`;
+            window.location.href = `arScan${level}.html`;
         }
 
         document.querySelectorAll('.button-container button').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const level = this.dataset.level;
                 handleButtonClick(level);
             });
         });
     </script>
 </body>
+
 </html>
