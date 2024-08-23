@@ -179,10 +179,6 @@
                 var formattedPhoneNumber = iti.getNumber();
                 var localPhoneNumber = formattedPhoneNumber.replace("+886", "0");
 
-                // 創建一個 FormData 對象來存儲表單數據
-                var formData = new FormData(this);
-                formData.append("phone", localPhoneNumber); // 使用本地格式的手機號碼
-
                 // 檢查手機號碼是否重複
                 $.ajax({
                     url: "https://tdance.fansee.studio/trips/api/user/",
@@ -192,19 +188,14 @@
                         gender: $('#id_gender').val(),
                     },
                     success: function (response) {
-                        if (!response.exists) {
-                            // 成功後的操作
-                            if (response.redirect_url) {
-                                window.location.href = response.redirect_url;
-                            } else {
-                                $('#user-form').unbind('submit').submit();
-                            }
-                        }
+                        console.log(response)
+                        window.location.href = "manual.html";
                     },
                     error: function (response) {
                         console.log(response);
-                        if (response.status === 400 && response.responseJSON.exists) {
-                            alert(response.responseJSON.message); // 顯示重複的提示信息
+                        message = JSON.parse(response.responseText).phone[0];
+                        if (response.status === 400 && message === 'user profile with this phone already exists.') {
+                            alert("您的帳號已經註冊過，請重新註冊一組帳號"); // 顯示重複的提示信息
                         }
                     }
                 });
