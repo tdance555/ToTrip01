@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
             left: 10px;
             width: 100px;
             height: 100px;
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/%E5%B0%8D%E9%8C%AF%E8%BF%94%E5%9B%9E_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201%20%E8%A4%87%E6%9C%AC%204.png?raw=true');
+            background-image: url('./media/vendor_icons/%E5%B0%8D%E9%8C%AF%E8%BF%94%E5%9B%9E_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201%20%E8%A4%87%E6%9C%AC%204.png?raw=true');
             background-size: cover;
             background-color: transparent;
             border: none;
@@ -52,7 +53,7 @@
             background-color: #4F74AB;
             border-radius: 5px;
             color: white;
-            align-self:center;
+            align-self: center;
         }
 
         .result {
@@ -77,15 +78,19 @@
         }
     </style>
 </head>
+
 <body>
     <button class="back-button" onclick="window.history.back()"></button>
     <h1></h1>
     <!-- 換mind檔案 -->
-    <a-scene mindar-image="imageTargetSrc: mind/targets_22.mind; uiError: no; uiLoading: no; uiScanning: no;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: mind/targets_22.mind; uiError: no; uiLoading: no; uiScanning: no;"
+        color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
         <a-assets>
             <!-- 換圖片 -->
             <img id="card" src="img/img_22.png" />
-            <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+            <a-asset-item id="avatarModel"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -114,7 +119,7 @@
             let targetFoundOnce = false;
             // let level = getCookie('level');
             // 換關卡編號
-            let level ="22";
+            let level = "22";
             let phone = getCookie('phone');
             let mainurl = "https://tdance.fansee.studio/trips/api/post-detail/";
 
@@ -162,9 +167,9 @@
                                             $('.question, .option').remove();
 
                                             if (resultStatus === 'pass') {
-                                                $('.result').html('<p>恭喜通關</p><img src="https://github.com/tdance555/tdance2024/blob/beforeFinish/media/vendor_icons/correct.png?raw=true" alt="Success Image"><button onclick="window.history.back()">繼續前行</button>');
+                                                $('.result').html('<p>恭喜通關</p><img src="./media/vendor_icons/correct.png?raw=true" alt="Success Image"><button onclick="window.history.back()">繼續前行</button>');
                                             } else {
-                                                $('.result').html('<p>挑戰失敗</p><img src="https://github.com/tdance555/tdance2024/blob/beforeFinish/media/vendor_icons/wrong.png?raw=true" alt="Failure Image"><button onclick="window.history.back()">繼續前行</button>');
+                                                $('.result').html('<p>挑戰失敗</p><img src="./media/vendor_icons/wrong.png?raw=true" alt="Failure Image"><button onclick="window.history.back()">繼續前行</button>');
                                             }
 
                                             $('.result').fadeIn();
@@ -206,4 +211,5 @@
         });
     </script>
 </body>
+
 </html>
