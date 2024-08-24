@@ -1,5 +1,3 @@
-<!-- @Author: YI-SYUAN -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,167 +11,131 @@
             padding: 0;
             font-family: Arial, sans-serif;
             background-image: url('./media/vendor_icons/%E9%BB%83%E9%BA%B5%E5%8C%85.png');
-            /* 替換為你的背景圖片 URL */
             background-size: 100% 100%;
-            /* 確保圖片覆蓋整個背景 */
             background-position: center center;
-            /* 確保圖片居中 */
             background-repeat: no-repeat;
-            /* 防止圖片重覆 */
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            background-image: url('./media/vendor_icons/%E5%B0%8D%E9%8C%AF%E8%BF%94%E5%9B%9E_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201%20%E8%A4%87%E6%9C%AC%204.png');
+            background-size: cover;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
         }
 
         .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* 確保容器至少占滿整個視口高度 */
-            /*background: rgba(255, 255, 255, 0.8); */
-            /* 半透明白色背景 */
             flex-wrap: wrap;
         }
 
         .content {
-            /* background-color: #ffffff; */
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container {
+            position: relative;
+            margin: 10px;
+            width: 146px;
+            height: 159px;
+        }
+
+        .button-container button {
             width: 100%;
-            max-width: 500px;
-            padding-top: 50px;
-            /*box-shadow: 0 4px 8px rgba(0,0,0,0.1);  輕微陰影效果 */
-        }
-
-        button {
-            margin: 5px;
-        }
-
-        .iconbt6 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
+            height: 100%;
+            background-color: #4F74AB;
             border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
             border-radius: 15px;
-            border: 5px solid white;
+            border: 5px solid #EAD73B;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .button-container button[disabled] {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .button-container .iconbt6 {
             background-image: url('./media/vendor_icons/6.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
-        .iconbt7 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
-            border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
-            border-radius: 15px;
-            border: 5px solid white;
+        .button-container .iconbt7 {
             background-image: url('./media/vendor_icons/7.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
-        .iconbt19 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
-            border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
-            border-radius: 15px;
-            border: 5px solid white;
+        .button-container .iconbt19 {
             background-image: url('./media/vendor_icons/19.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
-        .iconbt20 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
-            border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
-            border-radius: 15px;
-            border: 5px solid white;
+        .button-container .iconbt20 {
             background-image: url('./media/vendor_icons/20.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
-        .iconbt21 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
-            border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
-            border-radius: 15px;
-            border: 5px solid white;
+        .button-container .iconbt21 {
             background-image: url('./media/vendor_icons/21.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
-        .iconbt22 {
-            width: 146px;
-            height: 159px;
-            background-color: rgb(41, 64, 42);
-            border: none;
-            color: white;
-            padding: 20px 42px;
-            text-align: center;
-            text-decoration: auto;
-            display: inline-block;
-            font-size: 35px;
-            border-radius: 15px;
-            border: 5px solid white;
+        .button-container .iconbt22 {
             background-image: url('./media/vendor_icons/22.png');
-            text-align: center;
-            background-size: contain;
-            background-repeat: no-repeat;
         }
 
+        .status-pass,
+        .status-fail {
+            position: absolute;
+            top: 50%;
+            /* 中心位置 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 居中 */
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: none;
+        }
+
+        .status-pass {
+            background-image: url('./media/vendor_icons/correct.png');
+        }
+
+        .status-fail {
+            background-image: url('./media/vendor_icons/wrong.png');
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .h1-1 {
+            font-size: 23px;
+        }
+
+        .h2-1 {
+            font-size: 20px;
+        }
 
         @media (min-width: 320px) and (max-width: 480px) {
             .container {
                 padding: 10px;
-            }
-
-            .content {
-                font-size: 14px;
             }
         }
 
@@ -181,55 +143,113 @@
             .container {
                 padding: 15px;
             }
-
-            .content {
-                font-size: 16px;
-            }
         }
 
         @media (min-width: 768px) {
             .container {
                 padding: 20px;
             }
-
-            .content {
-                font-size: 18px;
-            }
         }
     </style>
 </head>
 
 <body>
+    <button class="back-button" onclick="window.history.back()"></button>
     <div class="container">
         <div class="content">
-            <button class="iconbt6" onclick="num6()"></button>
-            <button class="iconbt7" onclick="num7()"></button>
-            <button class="iconbt19" onclick="num19()"></button>
-            <button class="iconbt20" onclick="num20()"></button>
-            <button class="iconbt21" onclick="num21()"></button>
-            <button class="iconbt22" onclick="num22()"></button>
+            <h1 class="h1-1">這是條刺激五感享受的冒險
+                路上有未知體驗等你來挑戰</h1>
+            <h2 class="h2-1">請任意選擇「兩個」事件並進行通關</h2>
+            <div class="button-container">
+                <button class="iconbt6" data-level="6"></button>
+                <div class="status-pass" id="status6"></div>
+                <div class="status-fail" id="fail6"></div>
+            </div>
+            <div class="button-container">
+                <button class="iconbt7" data-level="7"></button>
+                <div class="status-pass" id="status7"></div>
+                <div class="status-fail" id="fail7"></div>
+            </div>
+            <div class="button-container">
+                <button class="iconbt19" data-level="19"></button>
+                <div class="status-pass" id="status19"></div>
+                <div class="status-fail" id="fail19"></div>
+            </div>
+            <div class="button-container">
+                <button class="iconbt20" data-level="20"></button>
+                <div class="status-pass" id="status20"></div>
+                <div class="status-fail" id="fail20"></div>
+            </div>
+            <div class="button-container">
+                <button class="iconbt21" data-level="21"></button>
+                <div class="status-pass" id="status21"></div>
+                <div class="status-fail" id="fail21"></div>
+            </div>
+            <div class="button-container">
+                <button class="iconbt22" data-level="22"></button>
+                <div class="status-pass" id="status22"></div>
+                <div class="status-fail" id="fail22"></div>
+            </div>
         </div>
     </div>
 
     <script>
-        function num6() {
-            document.cookie = "level=" + "6" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
+        document.addEventListener('DOMContentLoaded', function () {
+            const phone = getCookie('phone');
+
+            if (phone) {
+                fetch(`https://tdance.fansee.studio/trips/api/post-detail/${phone}/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const levels = [6, 7, 19, 20, 21, 22];
+
+                        levels.forEach(level => {
+                            const statusPassElement = document.getElementById(`status${level}`);
+                            const statusFailElement = document.getElementById(`fail${level}`);
+                            const button = document.querySelector(`button[data-level="${level}"]`);
+
+                            const status = data.content[level.toString()]?.status;
+                            if (status === 'pass') {
+                                button.disabled = true;
+                                statusPassElement.style.display = 'block';
+                            } else if (status === 'fail') {
+                                button.disabled = true;
+                                statusFailElement.style.display = 'block';
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching post details', error);
+                    });
+            }
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
         }
-        function num7() {
-            document.cookie = "level=" + "7" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
+
+        function handleButtonClick(level) {
+            document.cookie = `level=${level}; path=/; max-age=${60 * 60 * 24 * 30}`; // 30 days
+            window.location.href = `arScan${level}.html`;
         }
-        function num19() {
-            document.cookie = "level=" + "19" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
-        }
-        function num20() {
-            document.cookie = "level=" + "20" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
-        }
-        function num21() {
-            document.cookie = "level=" + "21" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
-        }
-        function num22() {
-            document.cookie = "level=" + "22" + "; path=/; max-age=" + (60 * 60 * 24 * 30); // 30天的過期時間
-        }
+
+        document.querySelectorAll('.button-container button').forEach(button => {
+            button.addEventListener('click', function () {
+                const level = this.dataset.level;
+                handleButtonClick(level);
+            });
+        });
     </script>
 </body>
 
