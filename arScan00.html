@@ -207,7 +207,7 @@
                                     // 如果是null，則顯示問題和選項
                                     $.ajax({
                                         // url: "https://tdance.fansee.studio/trips/api/question/" + level,
-                                        url: questionUrl + level,
+                                        url: `${postUrl}${phone}/`,
                                         type: "GET",
                                         dataType: "json",
                                         success: function (Question) {
