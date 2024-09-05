@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         11: './media/vendor_icons/11.png',
     };
 
+    var postDetailUrl = "https://tdance.fansee.studio/trips/api/post-detail/";
 // 修改區結束------------------------------------------------------------------------------------
 
 
@@ -51,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     if (phone) {
-        fetch(`https://tdance.fansee.studio/trips/api/post-detail/${phone}/`)
+        // fetch(`https://tdance.fansee.studio/trips/api/post-detail/${phone}/`)
+        fetch(postDetailUrl+phone)
             .then(response => response.json())
             .then(data => {
                 levels.forEach(level => {
