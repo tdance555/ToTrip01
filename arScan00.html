@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="js/arScan.js"></script> -->
+    <script src="js/arScan.js"></script>
     <title>AR Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
@@ -179,7 +179,7 @@
         $(document).ready(function () {
             let targetFoundOnce = false;
             let phone = getCookie('phone');
-            let mainurl = "https://tdance.fansee.studio/trips/api/post-detail/";
+            // let mainurl = "https://tdance.fansee.studio/trips/api/post-detail/";
 
             // 監聽每個 targetIndex 的事件
             for (let i = 0; i <= 28; i++) {
@@ -193,7 +193,7 @@
 
                         // 獲取關卡狀態
                         $.ajax({
-                            url: mainurl + phone,
+                            url: postDetailUrl + phone,
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
@@ -206,7 +206,8 @@
                                 } else {
                                     // 如果是null，則顯示問題和選項
                                     $.ajax({
-                                        url: "https://tdance.fansee.studio/trips/api/question/" + level,
+                                        // url: "https://tdance.fansee.studio/trips/api/question/" + level,
+                                        url: questionUrl + level,
                                         type: "GET",
                                         dataType: "json",
                                         success: function (Question) {
@@ -238,7 +239,8 @@
 
                                                 // 發送 PATCH 請求更新數據
                                                 $.ajax({
-                                                    url: `https://tdance.fansee.studio/trips/api/post/${phone}/`,
+                                                    // url: `https://tdance.fansee.studio/trips/api/post/${phone}/`,
+                                                    url: postUrl+phone,
                                                     type: "PATCH",
                                                     contentType: "application/json",
                                                     data: JSON.stringify({
