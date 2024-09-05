@@ -3,9 +3,9 @@
 
 var routes = [
     { url: "route1.html", action: "Toroute1Page", image: "./media/vendor_icons/button_1.png" },
-    { url: "route2.html", action: "Toroute2Page", image: "./media/vendor_icons/button_2.png" },
-    { url: "route3.html", action: "Toroute3Page", image: "./media/vendor_icons/button_3.png" },
-    { url: "route3.html", action: "Toroute3Page", image: "./media/vendor_icons/button_3.png" },
+    { url: "route1.html", action: "Toroute1Page", image: "./media/vendor_icons/button_1.png" },
+    { url: "route1.html", action: "Toroute1Page", image: "./media/vendor_icons/button_1.png" },
+    { url: "route1.html", action: "Toroute1Page", image: "./media/vendor_icons/button_1.png" },
     // { url: "route3.html", action: "Toroute3Page", image: "./media/vendor_icons/button_3.png" },多一條就多一個按鈕
 ];
 
