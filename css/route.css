@@ -54,11 +54,11 @@
 }
 
 .status-pass {
-    background-image: url('./media/vendor_icons/correct.png');
+    background-image: url('media/vendor_icons/correct.png');
 }
 
 .status-fail {
-    background-image: url('./media/vendor_icons/wrong.png');
+    background-image: url('media/vendor_icons/wrong.png');
 }
 
 h1,
