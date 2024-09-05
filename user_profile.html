@@ -5,45 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>使用者資訊</title>
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <title>AR遊戲集點</title>
     <style>
-        /* 僅在手機上顯示 */
-        @media (min-width: 481px) {
-            body {
-                display: none;
+
+        .container {
+                flex-direction: column;
+                height: 100vh;
             }
+        
+        .gender-button {
+            cursor: pointer;
+            border: 1px solid #ccc;
+            /* 按鈕邊框顏色 */
+            background-color: #f0f0f0;
+            /* 按鈕默認背景顏色 */
+            color: #333;
+            /* 按鈕默認文字顏色 */
+            outline: none;
+            flex: 1;
+            /* 按鈕平分容器寬度 */
+            box-sizing: border-box;
+        }
+        
+        .gender-button.selected {
+                background-color: cadetblue;
+                /* 選中狀態的背景顏色 */
+                color: white;
+                /* 選中狀態的文字顏色 */
+            }
+        
+        .form-group {
+            text-align: center;
+            /* 文字置中 */
         }
 
-        @media (max-width: 480px) {
+        button {
+            width: 100%;
+            background-color: cadetblue;
+            /* 送出按鈕背景顏色 */
+            color: white;
+            /* 送出按鈕文字顏色 */
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* 手機大小 */
+        @media (min-width: 320px) and (max-width: 480px){
             body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
                 text-align: center;
                 /* 所有文字置中 */
                 background-image: url('./media/vendor_icons/%E4%BF%AE%E7%90%86%E7%B6%A0.png');
-                /* 背景圖像路徑 */
-                background-size: 100% 100%;
-                /* 使背景圖像覆蓋整個背景 */
-                background-position: center center;
-                /* 將背景圖像置中 */
-                background-repeat: no-repeat;
-                /* 防止背景圖像重複 */
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                /* 占滿視窗高度 */
-                padding: 20px;
-                box-sizing: border-box;
             }
 
             h1 {
-                margin-bottom: 20px;
+                margin-top: -100px;
+                margin-bottom: 70px;
+            }
+
+            h2{
+                margin-top: -50px;
             }
 
             .gender-buttons {
@@ -55,35 +77,20 @@
             .gender-button {
                 padding: 10px;
                 margin: 5px;
-                cursor: pointer;
                 border: 1px solid #ccc;
                 /* 按鈕邊框顏色 */
                 border-radius: 5px;
-                background-color: #f0f0f0;
-                /* 按鈕默認背景顏色 */
-                color: #333;
-                /* 按鈕默認文字顏色 */
-                font-size: 16px;
-                outline: none;
+                font-size: 20px;
                 flex: 1;
                 /* 按鈕平分容器寬度 */
-                box-sizing: border-box;
-            }
-
-            .gender-button.selected {
-                background-color: cadetblue;
-                /* 選中狀態的背景顏色 */
-                color: white;
-                /* 選中狀態的文字顏色 */
             }
 
             .form-group {
                 margin-bottom: 15px;
-                text-align: center;
-                /* 文字置中 */
             }
 
             input[type="tel"] {
+                font-size: 18px;
                 width: 100%;
                 padding: 10px;
                 box-sizing: border-box;
@@ -93,25 +100,143 @@
             }
 
             button {
-                width: 100%;
                 padding: 10px;
-                background-color: cadetblue;
-                /* 送出按鈕背景顏色 */
-                color: white;
-                /* 送出按鈕文字顏色 */
-                border: none;
                 border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-                outline: none;
+                font-size: 22px;
             }
 
             .text1 {
-                font-size: 15pt;
+                font-size: 20pt;
             }
 
             .text2 {
-                font-size: 10pt;
+                font-size: 18pt;
+            }
+        }
+
+        /* 平板大小 */
+        @media (min-width: 481px) and (max-width: 767px) {
+            body {
+                text-align: center;
+                /* 所有文字置中 */
+                background-image: url('./media/vendor_icons/%E4%BF%AE%E7%90%86%E7%B6%A0.png');
+            }
+
+            h1 {
+                margin-top: -100px;
+                margin-bottom: 70px;
+            }
+
+            h2{
+                margin-top: -50px;
+            }
+
+            .gender-buttons {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .gender-button {
+                padding: 10px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                /* 按鈕邊框顏色 */
+                border-radius: 5px;
+                font-size: 20px;
+                flex: 1;
+                /* 按鈕平分容器寬度 */
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            input[type="tel"] {
+                font-size: 18px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                /* 輸入框邊框顏色 */
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 22px;
+            }
+
+            .text1 {
+                font-size: 20pt;
+            }
+
+            .text2 {
+                font-size: 18pt;
+            }
+        }
+
+        /* 電腦大小 */
+        @media (min-width: 768px) {
+            body {
+                text-align: center;
+                /* 所有文字置中 */
+                background-image: url('./media/vendor_icons/%E4%BF%AE%E7%90%86%E7%B6%A0.png');
+            }
+
+            h1 {
+                margin-top: -100px;
+                margin-bottom: 70px;
+            }
+
+            h2{
+                margin-top: -50px;
+            }
+
+            .gender-buttons {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .gender-button {
+                padding: 10px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                /* 按鈕邊框顏色 */
+                border-radius: 5px;
+                font-size: 20px;
+                flex: 1;
+                /* 按鈕平分容器寬度 */
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            input[type="tel"] {
+                font-size: 18px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                /* 輸入框邊框顏色 */
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 22px;
+            }
+
+            .text1 {
+                font-size: 20pt;
+            }
+
+            .text2 {
+                font-size: 18pt;
             }
         }
     </style>
@@ -121,15 +246,15 @@
 
 <body>
     <div class="container">
-        <h1 class="text1">在開始旅遊之前，我們想知道......</h1>
-        <h2 class="text2">請提供簡單資訊方便我們紀錄您的集點資訊</h2>
+        <h1 class="text1">個人資訊</h1>
+        <h2 class="text2">請提供資訊以便紀錄集點內容</h2>
         <form id="user-form" method="post" action="">
             <div class="form-group">
-                <h3>手機號碼</h3>
+                <h3 class="text2">手機號碼</h3>
                 <input type="tel" id="phone" name="phone" placeholder="輸入手機號碼">
             </div>
             <div class="form-group">
-                <h3>性別</h3>
+                <h3 class="text2">性別</h3>
                 <div class="gender-buttons">
                     <div class="gender-button" data-value="M">生理<br>男性</div>
                     <div class="gender-button" data-value="F">生理<br>女性</div>
