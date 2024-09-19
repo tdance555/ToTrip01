@@ -8,7 +8,7 @@ var manual="manual.html";//使用說明頁面(可以依需求設計成故事楔�
 var teach="teach.html";//詳細使用教學頁面
 
 //api引用位址
-var postDetailUrl = "https://tdance.fansee.studio/trips/api/post-detail/";//通關狀況讀取(arScan.js)
-var questionUrl = "https://tdance.fansee.studio/trips/api/question/";//問題資料讀取(arScan.js)
-var postUrl = "https://tdance.fansee.studio/trips/api/post/";//通關狀況資料表更新(arScan.js)
-var userUrl = "https://tdance.fansee.studio/trips/api/user/";//使用者資料表新增(userProfile.js)
+var postDetailUrl = "http://159.223.140.116:8000/trips/api/post-detail/";//通關狀況讀取(arScan.js)
+var questionUrl = "http://159.223.140.116:8000/trips/api/question/";//問題資料讀取(arScan.js)
+var postUrl = "http://159.223.140.116:8000/trips/api/post/";//通關狀況資料表更新(arScan.js)
+var userUrl = "http://159.223.140.116:8000/trips/api/user/";//使用者資料表新增(userProfile.js)
